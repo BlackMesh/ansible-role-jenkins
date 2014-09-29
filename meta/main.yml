@@ -1,7 +1,7 @@
 ---
 dependencies:
-  - { role: geerlingguy.apache, when: jenkins_webserver == 'apache' }
-  - { role: geerlingguy.java }
+  - { role: apache, when: jenkins_webserver == 'apache' }
+  - { role: java, java_packages: java-1.6.0-openjdk }
 
 galaxy_info:
   author: geerlingguy
