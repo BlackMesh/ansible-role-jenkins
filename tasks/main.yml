@@ -54,6 +54,10 @@
   with_items: jenkins_plugins
   notify: restart jenkins
 
+- name: Install Jenkins jobs
+  copy: src={{ jenkins_jobs }} dest=/var/lib/jenkins/jobs/ owner=jenkins
+  notify: restart jenkins
+
 - name: copy jenkins.conf file
   template: src=jenkins.conf.j2 dest=/etc/httpd/conf.d/jenkins.conf
   notify: restart apache

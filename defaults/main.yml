@@ -7,5 +7,7 @@ jenkins_plugins:
   - git
   - sonar
   - ssh
-#  - job-import-plugin
+  - log-parser
   - post-completed-build-result
+
+jenkins_jobs: []
