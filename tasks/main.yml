@@ -58,6 +58,10 @@
   copy: src={{ jenkins_jobs }} dest=/var/lib/jenkins/jobs/ owner=jenkins
   notify: restart jenkins
 
+- name: Install Jenkins Post Listener
+  template: src=PostCompleteRunListener.xml.j2 dest=/var/lib/jenkins/org.terracotta.jenkins.plugins.postcompleted.PostCompletedRunListener.xml owner=jenkins
+  notify: restart jenkins
+
 - name: copy jenkins.conf file
   template: src=jenkins.conf.j2 dest=/etc/httpd/conf.d/jenkins.conf
   notify: restart apache
